@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <label>Value: <input type="text" id="theValue"></label>
+<input type="button" id="setValue" value="Set">
+<script>
+(function() {
+  // Use an input to show the current value and let
+  // the user set a new one
+  var input = document.getElementById("theValue");
+
+  var array = ["big", "beautiful", "happy", "tall", "fat", "cranky"];
+
+  // Reading the value, which was store as "theValue"
+  if (localStorage && 'test' in localStorage) {
+    input.value = localStorage.test;
+    console.log(localStorage.test);
+  }
+
+  document.getElementById("setValue").onclick = function () {
+    // Writing the value
+    array.push(input.value);
+    input.value = array;
+    localStorage && (localStorage.test = input.value);
+  };
+})();
+</script>
+</body>
+</html>
